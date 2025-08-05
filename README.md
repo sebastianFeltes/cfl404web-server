@@ -30,6 +30,8 @@ el servidor web esta hecho con express y se encarga de:
 - Cors: seguridad
 - Morgan: logging
 - Bcrypt: encriptacion
+- Cron: programacion de tareas
+- Temporal-polyfill: polyfill para temporal y el manejo de fechas
 - Nodemon: desarrollo
 
 ## Directorios
@@ -39,9 +41,10 @@ el servidor web esta hecho con express y se encarga de:
 - src/config: configuraciones
 - src/database: base de datos
 - src/middlewares: middlewares
+- src/schemas: esquemas de validacion
 - src/models: modelos
 - src/routes: rutas
-- src/utils: utils
+- src/utils: funciones utiles
 
 ## Instalacion
 
