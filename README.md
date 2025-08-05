@@ -20,6 +20,29 @@ el servidor web esta hecho con express y se encarga de:
 - Altas, bajas, modificaciones y consultas de cursos
 - Altas, bajas, modificaciones y consultas de inscripciones
 
+## Tecnologias
+
+- Express: framework web
+- MySQL: base de datos
+- Sequelize: ORM
+- JWT: autenticacion
+- Zod: validacion de datos
+- Cors: seguridad
+- Morgan: logging
+- Bcrypt: encriptacion
+- Nodemon: desarrollo
+
+## Directorios
+
+- src: directorio principal
+- src/controllers: controladores
+- src/config: configuraciones
+- src/database: base de datos
+- src/middlewares: middlewares
+- src/models: modelos
+- src/routes: rutas
+- src/utils: utils
+
 ## Instalacion
 
 ```bash
