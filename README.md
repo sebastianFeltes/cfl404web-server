@@ -2,7 +2,8 @@
 
 Servidor web para la aplicacion del centro de formacion laboral 404 de berisso
 
-el servidor web esta hecho con express y se encarga de:
+## Descripcion
+El servidor web esta hecho con express y se encarga de:
 - Manejar las rutas de la aplicacion
 - Manejar los middlewares
 - Manejar los errores
