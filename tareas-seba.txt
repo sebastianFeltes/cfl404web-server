@@ -1,0 +1,48 @@
+Mateo:
+    Vista de todos los Cursos
+    Vista de un Curso especifico
+        nombres
+        descripcion
+        imagen
+        horario
+        lugar
+        precio
+        fechas
+        requisitos
+        modalidad
+        filtros
+
+Brenda:
+    seccion contacto
+        redes
+        wsp
+        ubi
+    
+    datos de gg
+    datos personales
+    asistencias
+    crendencial 
+
+Hernan:
+    cooperadora
+    memorias
+
+    cursos activos
+
+Alexis:
+    institucional
+    historia/mision/vision
+    FAQs: preguntas frecuentes
+    fotos o testmonios (opcional)
+
+    dashboard
+    accesos segmentados
+
+
+Luciano:
+    estidisticas
+        asistencias
+        egresos de alumnos
+        datos historia
+        graficos
+

@@ -26,8 +26,9 @@ app.use(morgan("dev"));       // Muestra logs de peticiones HTTP en consola (mod
 // ====================
 // Rutas de la API
 // ====================
+
 app.get("/", (req, res) => {
-  res.send("Hello World!");   // Ruta de prueba que responde con un mensaje
+  res.send("Hello world!");   // Ruta de prueba que responde con un mensaje
 });
 
 // ============================
