@@ -1,0 +1,1 @@
+[ ] foto del curso en la db?

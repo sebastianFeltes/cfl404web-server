@@ -12,6 +12,8 @@ Mateo:
         modalidad
         filtros
 
+
+
 Brenda:
     seccion contacto
         redes
@@ -21,13 +23,20 @@ Brenda:
     datos de gg
     datos personales
     asistencias
-    crendencial 
+    crendencial
+        users.controllers.js 
+
+Franco:
+    auth
+        login
+        logout
 
 Hernan:
     cooperadora
     memorias
 
     cursos activos
+        courses.controllers.js
 
 Alexis:
     institucional
@@ -37,12 +46,16 @@ Alexis:
 
     dashboard
     accesos segmentados
-
+        resumes.controllers.js
 
 Luciano:
-    estidisticas
+    estadisticas
         asistencias
         egresos de alumnos
         datos historia
         graficos
+
+        stats.controllers.js
+
+
 
