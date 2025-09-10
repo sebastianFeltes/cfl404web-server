@@ -30,9 +30,12 @@ app.use(morgan("dev")); // Muestra logs de peticiones HTTP en consola (modo 'dev
 
 // Importar middlewares de base de datos
 import { healthCheckMiddleware } from './middlewares/database.middleware.js';
+import UsersRouter from "./routes/users.routes.js";
 
 // Ruta de salud de la base de datos
 app.get('/health', healthCheckMiddleware);
+
+app.use('/users', UsersRouter)
 
 // Ruta principal
 //app.use("/", (req, res) => {

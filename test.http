@@ -1,11 +1,28 @@
-GET http://localhost:4000/api/users HTTP/1.1
+GET http://localhost:4000/users HTTP/1.1
 content-type: application/json
 ###
 
-PUT http://localhost:4000/api/beneficios HTTP/1.1
+PUT http://localhost:4000/users HTTP/1.1
 content-type: application/json
 
 {
     "name": "holaaa",
     "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+###
+POST http://localhost:4000/users HTTP/1.1
+content-type: application/json
+
+{
+    "username":"BrendaBXH",
+    "firstName": "Brenda",
+    "lastName": "Hakimian",
+    "googleId": null,
+    "photoUrl": null,
+    "email": "brenda1234@gmail.com",
+    "password": "fnkndsfkjsn",
+    "roleId": 7,
+    "statusId": 1,
+    "description": "sfaofijaosfjaofjsfjaojfo oisajfasj"
 }
