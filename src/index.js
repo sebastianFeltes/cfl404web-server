@@ -27,6 +27,11 @@ app.use(morgan("dev")); // Muestra logs de peticiones HTTP en consola (modo 'dev
 // ====================
 // Rutas de la API
 // ====================
+import RolesRouter from "./routes/roles.routes.js";
+import AttendanceRouter from "./routes/attendance.routes.js";
+
+app.use("/roles", RolesRouter)
+app.use("/attendance", AttendanceRouter)
 import CoursesRouter from "./routes/courses.routes.js";
 
 app.use(`/courses`, CoursesRouter);
@@ -55,7 +60,6 @@ app.use('/staff', StaffRouter)
 
 // Rutas de la API
 
-
 // ============================
 // Manejo de errores genérico
 // ============================
@@ -68,7 +72,6 @@ app.use((err, req, res, next) => {
 // Inicializar el servidor
 // ==============================
 const PORT = process.env.PORT || 3000; // Usa el puerto de .env o el 3000 por defecto
-
 // Función para inicializar la aplicación
 async function startServer() {
   try {
