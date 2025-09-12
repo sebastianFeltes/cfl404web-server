@@ -30,9 +30,11 @@ app.use(morgan("dev")); // Muestra logs de peticiones HTTP en consola (modo 'dev
 
 // Importar middlewares de base de datos
 import { healthCheckMiddleware } from './middlewares/database.middleware.js';
-
+import StaffRouter from "./routes/staff.routes.js";
 // Ruta de salud de la base de datos
 app.get('/health', healthCheckMiddleware);
+
+app.use('/staff', StaffRouter)
 
 // Ruta principal
 //app.use("/", (req, res) => {
@@ -63,10 +65,6 @@ app.use((err, req, res, next) => {
 // Inicializar el servidor
 // ==============================
 const PORT = process.env.PORT || 3000; // Usa el puerto de .env o el 3000 por defecto
-
-app.get('/', (req, res) => {
-  res.send('Hello World');
-});
 
 // Función para inicializar la aplicación
 async function startServer() {

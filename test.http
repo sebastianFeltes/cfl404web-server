@@ -1,5 +1,4 @@
-GET http://localhost:4000/api/users HTTP/1.1
-content-type: application/json
+GET http://localhost:4000/users HTTP/1.1
 ###
 
 PUT http://localhost:4000/api/beneficios HTTP/1.1
@@ -9,3 +8,22 @@ content-type: application/json
     "name": "holaaa",
     "time": "Wed, 21 Oct 2015 18:27:50 GMT"
 }
+
+###
+POST http://localhost:4000/days/user HTTP/1.1
+content-type: application/json
+
+{
+    "username": "juan.perez",
+    "firstName": "juan carlos",
+    "lastName": "perez garcia",
+    "email": "juan.perez@gmail.com",
+    "password": "password",
+    "roleId": 1,
+    "statusId": 1,
+    "photoUrl": "https://www.google.com",
+    "googleId": "1234567890",
+    "description": "juan carlos perez garcia"
+}
+
+###

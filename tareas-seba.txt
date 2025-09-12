@@ -1,4 +1,25 @@
-Mateo:
+Brenda:
+    seccion contacto
+        redes
+        wsp
+        ubi
+    
+    datos de gg
+    datos personales
+        users.controllers.js 
+
+Franco:
+    asistencias
+    auth
+        login
+        logout
+
+Hernan:
+    cooperadora
+    memorias
+
+    cursos activos
+        courses.controllers.js
     Vista de todos los Cursos
     Vista de un Curso especifico
         nombres
@@ -11,32 +32,6 @@ Mateo:
         requisitos
         modalidad
         filtros
-
-
-
-Brenda:
-    seccion contacto
-        redes
-        wsp
-        ubi
-    
-    datos de gg
-    datos personales
-    asistencias
-    crendencial
-        users.controllers.js 
-
-Franco:
-    auth
-        login
-        logout
-
-Hernan:
-    cooperadora
-    memorias
-
-    cursos activos
-        courses.controllers.js
 
 Alexis:
     institucional
@@ -57,5 +52,7 @@ Luciano:
 
         stats.controllers.js
 
-
-
+Seba
+    docentes
+    asistencias
+    
