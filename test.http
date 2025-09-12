@@ -1,12 +1,32 @@
+GET http://localhost:4000/courses HTTP/1.1
+content-type: application/json
 GET http://localhost:4000/users HTTP/1.1
 ###
 
-PUT http://localhost:4000/api/beneficios HTTP/1.1
+PUT http://localhost:4000/courses HTTP/1.1
 content-type: application/json
 
 {
     "name": "holaaa",
     "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+###
+
+POST  http://localhost:4000/courses HTTP/1.1
+content-type: application/json
+
+{
+      "name": "Curso de modelado e impresion 3D",
+      "staffId": 3,
+      "startDate": "2024-03-15T03:00:00.000Z",
+      "endDate": "2024-12-20T03:00:00.000Z",
+      "innasistanceAllowed": 3,
+      "lectiveYear": 2025,
+      "teachingHours": 150,
+      "totalDays": 75,
+      "totalClasses": 37,
+      "statusId": 1,
+      "description": "Curso de modelado con herramientas digitales e imprresion 3D"
 }
 
 ###

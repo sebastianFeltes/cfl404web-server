@@ -27,6 +27,9 @@ app.use(morgan("dev")); // Muestra logs de peticiones HTTP en consola (modo 'dev
 // ====================
 // Rutas de la API
 // ====================
+import CoursesRouter from "./routes/courses.routes.js";
+
+app.use(`/courses`, CoursesRouter);
 
 // Importar middlewares de base de datos
 import { healthCheckMiddleware } from './middlewares/database.middleware.js';
