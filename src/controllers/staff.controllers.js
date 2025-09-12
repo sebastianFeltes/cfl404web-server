@@ -48,7 +48,34 @@ model StaffDetail {
 
 export const getAllStaff = async (req, res) => {
   try {
-    const staff = await database.getClient().staff.findMany();
+    const staff = await database.getClient().staff.findMany({
+      include:{
+        courses:{
+          omit:{
+            description: true,
+            createdAt: true,
+            updatedAt: true,
+          },
+        },
+        staffDetail: {
+          omit:{
+            description: true,
+            createdAt: true,
+            updatedAt: true,
+          },
+        },
+        status: {
+          omit: {
+            description: true,
+            createdAt: true,
+            updatedAt: true,
+          },
+        },
+      },
+      orderBy:{
+        lastName: "asc",
+      }
+    });
     if (!staff) {
       return res.status(404).json({
         message: "No se encontraron docentes"
