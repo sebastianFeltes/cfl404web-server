@@ -27,6 +27,11 @@ app.use(morgan("dev")); // Muestra logs de peticiones HTTP en consola (modo 'dev
 // ====================
 // Rutas de la API
 // ====================
+import RolesRouter from "./routes/roles.routes.js";
+import AttendanceRouter from "./routes/attendance.routes.js";
+
+app.use("/roles", RolesRouter)
+app.use("/attendance", AttendanceRouter)
 
 // Importar middlewares de base de datos
 import { healthCheckMiddleware } from './middlewares/database.middleware.js';
@@ -50,7 +55,6 @@ app.get('/health', healthCheckMiddleware);
 
 // Rutas de la API
 
-
 // ============================
 // Manejo de errores genérico
 // ============================
@@ -67,7 +71,6 @@ const PORT = process.env.PORT || 3000; // Usa el puerto de .env o el 3000 por de
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
-
 // Función para inicializar la aplicación
 async function startServer() {
   try {
