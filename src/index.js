@@ -38,9 +38,12 @@ app.use(`/courses`, CoursesRouter);
 
 // Importar middlewares de base de datos
 import { healthCheckMiddleware } from './middlewares/database.middleware.js';
+import UsersRouter from "./routes/users.routes.js";
 import StaffRouter from "./routes/staff.routes.js";
 // Ruta de salud de la base de datos
 app.get('/health', healthCheckMiddleware);
+
+app.use('/users', UsersRouter)
 
 app.use('/staff', StaffRouter)
 
