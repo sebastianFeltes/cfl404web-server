@@ -1,7 +1,9 @@
-GET http://localhost:4000/api/users HTTP/1.1
+GET http://localhost:4000/localhost:4000/api/resumes HTTP/1.1
 content-type: application/json
 ###
-
+GET http://localhost:4000/localhost:4000/resumes/students HTTP/1.1
+content-type: application/json
+###
 PUT http://localhost:4000/api/beneficios HTTP/1.1
 content-type: application/json
 

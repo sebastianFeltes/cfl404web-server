@@ -29,28 +29,31 @@ app.use(morgan("dev")); // Muestra logs de peticiones HTTP en consola (modo 'dev
 // ====================
 
 // Importar middlewares de base de datos
-import { healthCheckMiddleware } from './middlewares/database.middleware.js';
+import { healthCheckMiddleware } from "./middlewares/database.middleware.js";
 
 // Ruta de salud de la base de datos
-app.get('/health', healthCheckMiddleware);
+app.get("/health", healthCheckMiddleware);
+
+
 
 // Ruta principal
 //app.use("/", (req, res) => {
 //  res.json({
- //   message: "CFL404 Web Server API",
- //   version: "1.0.0",
- //   status: "running",
- //   timestamp: new Date().toISOString(),
- //   endpoints: {
- //     health: "/health",
- //     users: "/api/users"
- //    }
- //  });
+//   message: "CFL404 Web Server API",
+//   version: "1.0.0",
+//   status: "running",
+//   timestamp: new Date().toISOString(),
+//   endpoints: {
+//     health: "/health",
+//     users: "/api/users"
+//    }
+//  });
 //});
 
 // Rutas de la API
+import ResumesRouter from "./routes/resumes.routes.js";
 
-
+app.use("/resumes", ResumesRouter);
 // ============================
 // Manejo de errores genérico
 // ============================
@@ -64,30 +67,29 @@ app.use((err, req, res, next) => {
 // ==============================
 const PORT = process.env.PORT || 3000; // Usa el puerto de .env o el 3000 por defecto
 
-app.get('/', (req, res) => {
-  res.send('Hello World');
+app.get("/", (req, res) => {
+  res.send("Hello World");
 });
 
 // Función para inicializar la aplicación
 async function startServer() {
   try {
     // Inicializar la conexión a la base de datos
-    console.log('🔄 Inicializando conexión a la base de datos...');
+    console.log("🔄 Inicializando conexión a la base de datos...");
     await database.connect();
-    
+
     // Verificar el estado de la base de datos
     const health = await database.healthCheck();
-    console.log('📊 Estado de la base de datos:', health.status);
-    
+    console.log("📊 Estado de la base de datos:", health.status);
+
     // Iniciar el servidor
-    app.listen(PORT, '0.0.0.0',() => {
+    app.listen(PORT, "0.0.0.0", () => {
       console.log(`🚀 Servidor ejecutándose en el puerto ${PORT}`);
       console.log(`🌐 URL: http://localhost:${PORT}`);
-      console.log(`📅 Fecha: ${new Date().toLocaleString('es-ES')}`);
+      console.log(`📅 Fecha: ${new Date().toLocaleString("es-ES")}`);
     });
-    
   } catch (error) {
-    console.error('❌ Error al inicializar el servidor:', error);
+    console.error("❌ Error al inicializar el servidor:", error);
     process.exit(1);
   }
 }
