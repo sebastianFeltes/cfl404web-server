@@ -27,6 +27,10 @@ app.use(morgan("dev")); // Muestra logs de peticiones HTTP en consola (modo 'dev
 // ====================
 // Rutas de la API
 // ====================
+import StatsRouter from "./routes/stats.routes.js";
+
+
+app.use("/stats",StatsRouter)
 
 // Importar middlewares de base de datos
 import { healthCheckMiddleware } from './middlewares/database.middleware.js';

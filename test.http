@@ -1,7 +1,15 @@
-GET http://localhost:4000/api/users HTTP/1.1
+GET http://localhost:4000/stats/students HTTP/1.1
 content-type: application/json
 ###
-
+GET http://localhost:4000/stats/courses HTTP/1.1
+content-type: application/json
+###
+GET http://localhost:4000/stats/staffs HTTP/1.1
+content-type: application/json
+###
+GET http://localhost:4000/stats/attendances HTTP/1.1
+content-type: application/json
+###
 PUT http://localhost:4000/api/beneficios HTTP/1.1
 content-type: application/json
 
