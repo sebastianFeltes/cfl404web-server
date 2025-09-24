@@ -3,7 +3,7 @@ import database from "../config/database.js";
 // StudentsResume
 export const getStudentsResume = async (req, res) => {
   try {
-    const students = await database.getClient().student.findMany();
+    const students = await database.getClient().student.count();
 
     if (!students || students.length === 0) {
       return res.status(404).json({
@@ -13,9 +13,7 @@ export const getStudentsResume = async (req, res) => {
 
     res.status(200).json({
       message: "Estudiantes encontrados correctamente",
-      students,
-      count: students.length,
-      page: 1,
+      data: students,
     });
   } catch (error) {
     console.log(error);
@@ -28,7 +26,7 @@ export const getStudentsResume = async (req, res) => {
 // CoursesResume
 export const getCoursesResume = async (req, res) => {
   try {
-    const courses = await database.getClient().course.findMany();
+    const courses = await database.getClient().course.count();
 
     if (!courses || courses.length === 0) {
       return res.status(404).json({
@@ -38,9 +36,7 @@ export const getCoursesResume = async (req, res) => {
 
     res.status(200).json({
       message: "Cursos encontrados correctamente",
-      courses,
-      count: courses.length,
-      page: 1,
+      data: courses,
     });
   } catch (error) {
     console.log(error);
@@ -53,7 +49,7 @@ export const getCoursesResume = async (req, res) => {
 // StaffsResume
 export const getStaffsResume = async (req, res) => {
   try {
-    const staffs = await database.getClient().staff.findMany();
+    const staffs = await database.getClient().staff.count();
 
     if (!staffs || staffs.length === 0) {
       return res.status(404).json({
@@ -63,9 +59,7 @@ export const getStaffsResume = async (req, res) => {
 
     res.status(200).json({
       message: "Staff encontrados correctamente",
-      staffs,
-      count: staffs.length,
-      page: 1,
+      data: staffs,
     });
   } catch (error) {
     console.log(error);
@@ -78,7 +72,7 @@ export const getStaffsResume = async (req, res) => {
 // AttendancesResume
 export const getAttendancesResume = async (req, res) => {
   try {
-    const attendances = await database.getClient().attendance.findMany();
+    const attendances = await database.getClient().attendance.count();
 
     if (!attendances || attendances.length === 0) {
       return res.status(404).json({
@@ -88,9 +82,7 @@ export const getAttendancesResume = async (req, res) => {
 
     res.status(200).json({
       message: "Asistencias encontrados correctamente",
-      attendances,
-      count: attendances.length,
-      page: 1,
+      data: attendances,
     });
   } catch (error) {
     console.log(error);
