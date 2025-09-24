@@ -3,7 +3,83 @@ import database from "../config/database.js";
 /* HAGO UN GET */
 export const getCourses = async (req, res) => {
   try {
-    const courses = await database.getClient().course.findMany();
+    const courses = await database.getClient().course.findMany({
+      include:{
+        staff:{
+          select: {
+            firstName: true,
+            lastName: true,
+          }
+        },
+        status:{
+          select:{
+            name:true,
+          }
+        },
+        courseDays:{
+          include:{
+            classroom:{
+              omit:{
+                createdAt: true,
+                updatedAt: true
+              }
+            },
+            shift:{
+              select:{
+                name: true
+              }
+            },
+            day:{
+              select:{
+                name:true
+              }
+            },
+            course:{
+              select:{
+                name:true
+              }
+            }
+          }
+        },
+        courseStudents:{
+          include:{
+            course:{
+              omit:{
+                createdAt:true,
+                updatedAt:true
+              }
+            },
+            student:{
+              omit:{
+                createdAt:true,
+                updatedAt:true
+              }
+            },
+            status:{
+              select:{
+                name:true,
+                description:true
+              }
+            },
+            attendances:{
+              select:{
+                hour:true,
+                date:true
+              }
+            }
+          }
+
+          },
+        inscriptions:{
+          include:{
+            user:{
+              
+            }
+          }
+        }  
+        }
+      }
+    )
 
     if (!courses || courses.length == 0) {
       return res.status(404).json({
@@ -56,31 +132,29 @@ export const createCourse = async (req, res) => {
       totalDays,
       totalClasses,
       statusId,
-      description
+      description,
     } = req.body;
 
     const course = await database.getClient().course.create({
       data: {
-      name,
-      staffId,
-      startDate,
-      endDate,
-      innasistanceAllowed,
-      lectiveYear,
-      teachingHours,
-      totalDays,
-      totalClasses,
-      statusId,
-      description
+        name,
+        staffId,
+        startDate,
+        endDate,
+        innasistanceAllowed,
+        lectiveYear,
+        teachingHours,
+        totalDays,
+        totalClasses,
+        statusId,
+        description,
       },
     });
 
     res.status(200).json({
-        message: "Curso creado correctamente",
-        course
-    })
-
-
+      message: "Curso creado correctamente",
+      course,
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({
