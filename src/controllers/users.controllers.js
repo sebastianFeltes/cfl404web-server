@@ -1,8 +1,50 @@
+import { includes } from "zod";
 import database from "../config/database.js";
+import { omit } from "zod/mini";
+import { fa, id } from "zod/locales";
 // GET
 export const getAllUsers = async (req, res) => {
   try {
-    const users = await database.getClient().User.findMany();
+    const users = await database.getClient().user.findMany({
+      include: {
+        status: {
+          select: {
+            name: true,
+          },
+        },
+        role: {
+          select: {
+            name: true,
+          },
+        },
+        students:{
+          select: {
+            recordNumber: true,
+            dni: true,
+            firstName: true,
+            lastName: true,
+            statusId: true,
+          }
+        },
+        staff :{
+          select: {
+            statusId: true,
+          }
+        }
+      },
+      omit:{
+        password: true,
+        createdAt: true,
+        updatedAt: true
+      },
+      select:{
+        _count:{
+          select: {
+            students: true
+          }
+        }
+      },
+    });
     if (!users || users.length === 0) {
       return res.status(404).json({
         message: "No se encontraron los usuarios",
@@ -35,7 +77,7 @@ export const createUser = async (req, res) => {
       password,
       roleId,
       statusId,
-      description
+      description,
     } = req.body;
 
     const users = await database.getClient().user.create({
@@ -49,7 +91,7 @@ export const createUser = async (req, res) => {
         password,
         roleId,
         statusId,
-        description
+        description,
       },
     });
 
