@@ -50,11 +50,7 @@ export const getAllStaff = async (req, res) => {
   try {
     const staff = await database.getClient().staff.findMany({
       include: {
-        _count: {
-          select: {
-            id: true
-          }
-        },
+        
         status: {
           omit: {
             createdAt: true,

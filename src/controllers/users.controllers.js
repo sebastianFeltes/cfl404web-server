@@ -17,32 +17,25 @@ export const getAllUsers = async (req, res) => {
             name: true,
           },
         },
-        students:{
+        students: {
           select: {
             recordNumber: true,
             dni: true,
             firstName: true,
             lastName: true,
             statusId: true,
-          }
+          },
         },
-        staff :{
+        staff: {
           select: {
             statusId: true,
-          }
-        }
+          },
+        },
       },
-      omit:{
+      omit: {
         password: true,
         createdAt: true,
-        updatedAt: true
-      },
-      select:{
-        _count:{
-          select: {
-            students: true
-          }
-        }
+        updatedAt: true,
       },
     });
     if (!users || users.length === 0) {
@@ -109,6 +102,47 @@ export const createUser = async (req, res) => {
   }
 };
 
+export const getUserById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const parsedId = parseInt(id);//'1' = 1
+
+    if (!id || !parsedId || parsedId == NaN) {
+      return res.status(404).json({
+        message: "No se encontro el usuario",
+      });
+    }
+
+    const user = await database.getClient().user.findUnique({
+      where: {
+        id: parsedId,
+      },
+      include: {
+        status: {
+          select: {
+            name: true,
+          },
+        },
+      },
+      omit: {
+        password: true,
+        googleId: true
+      },
+    });
+
+    res.json({
+      message: "usuario obtenido exitosamente",
+      data: user,
+    });
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Error al obtener los datos del usuario",
+    });
+  }
+};
 //
 
 /*

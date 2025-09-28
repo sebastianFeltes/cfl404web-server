@@ -77,7 +77,7 @@ app.use((err, req, res, next) => {
   console.error(err.stack); // Muestra el error completo en consola
   res.status(500).send("Something broke!"); // Responde con error 500 si algo falla
 });
-
+ 
 // ==============================
 // Inicializar el servidor
 // ==============================

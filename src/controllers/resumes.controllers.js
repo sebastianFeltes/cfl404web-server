@@ -13,7 +13,7 @@ export const getStudentsResume = async (req, res) => {
 
     res.status(200).json({
       message: "Estudiantes encontrados correctamente",
-      students,
+      data: students,
       count: students.length,
       page: 1,
     });
@@ -38,7 +38,7 @@ export const getCoursesResume = async (req, res) => {
 
     res.status(200).json({
       message: "Cursos encontrados correctamente",
-      courses,
+      data: courses,
       count: courses.length,
       page: 1,
     });
@@ -63,7 +63,7 @@ export const getStaffsResume = async (req, res) => {
 
     res.status(200).json({
       message: "Staff encontrados correctamente",
-      staffs,
+      data: staffs,
       count: staffs.length,
       page: 1,
     });
@@ -88,7 +88,7 @@ export const getAttendancesResume = async (req, res) => {
 
     res.status(200).json({
       message: "Asistencias encontrados correctamente",
-      attendances,
+      data: attendances,
       count: attendances.length,
       page: 1,
     });
